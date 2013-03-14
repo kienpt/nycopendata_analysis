@@ -4,6 +4,7 @@
 import json
 import urllib
 import codecs
+import sys
 
 #Get the number of datasets
 urlhandle = urllib.urlopen('http://nycopendata.socrata.com/api/views.json?count=True')
@@ -16,10 +17,11 @@ f = codecs.open('metadata.csv', 'w', 'utf-8')
 tag_f = codecs.open('tags.csv', 'w', 'utf-8')
 
 #Get metadata of the all datasets
+#Metadata for one dataset is formated in one line. Each attribute value is seperated by tab character and empty value is replaced by the string 'Null'
 print 'Total: ' + str(count)
 pages = count/200 + 1 #total number of pages
 for i in range(1, pages+1):
-	print 'Getting data from page ' + str(i) + ' ...'
+	sys.stdout.write('Getting data from page ' + str(i) + ' ... ')
 	urlhandle = urllib.urlopen("http://nycopendata.socrata.com/api/views.json?limit=200&page=" + str(i))
 	content = urlhandle.read()
 	js = json.loads(content)
@@ -47,5 +49,6 @@ for i in range(1, pages+1):
 		if js[j].has_key('tags'):
 			for t in js[j]['tags']:
 				tag_f.write(t + '\n')
+	print 'Done'
 print 'Done'
 f.close()

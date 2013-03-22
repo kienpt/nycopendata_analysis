@@ -1,0 +1,6 @@
+run comparison.py which will take lower_data.csv as the input and give similarity.csv as output which will contain the similarity for each pair.
+
+run removeone.py which will take similarity.csv as the input and remove pairs with lower similarity.
+Then you can sort the data using office or other sorting algorithm
+
+

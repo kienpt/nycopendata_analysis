@@ -14,3 +14,5 @@ duplicate.csv contains the duplicated pairs of datasets
 
 data_norecords.csv contains the datasets which donot contain a single entry.
 
+sort -k3 -r file_to sort > output_file
+

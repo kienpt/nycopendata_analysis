@@ -1,6 +1,6 @@
 
-f = open('similar123.csv','r')
-foo = open('imp_similarity.csv','a')
+f = open('data/similar123.csv','r')
+foo = open('data/imp_similarity.csv','a')
 
 for line in f:
 	x = line

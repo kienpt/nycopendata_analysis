@@ -28,6 +28,7 @@ with open('without_duplicate.csv') as lines:
 			succ += 1
 			if succ % 10 == 0:
 				print succ
+			f_succ.write(_id + '\n')
 		except urllib2.URLError, e:
 			print 'Connection_failed'
 			fail += 1

@@ -14,7 +14,7 @@ js = json.loads(content)
 count = js['count']
 
 #Output
-f = codecs.open('data.csv', 'w', 'utf-8')
+f = codecs.open('data/data.csv', 'w', 'utf-8')
 
 Get metadata of the all datasets
 print 'Total: ' + str(count)

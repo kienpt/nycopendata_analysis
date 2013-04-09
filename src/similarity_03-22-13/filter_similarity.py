@@ -4,7 +4,6 @@ foo = open('data/imp_similarity.csv','a')
 
 for line in f:
 	x = line
-
 	words = x.split()
 
 	temp = words[2]

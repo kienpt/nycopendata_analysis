@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+#Get metadata and schemas from all datasets.
 import json
 import urllib2
 import codecs
@@ -26,18 +26,15 @@ for i in range(1, pages+1):
 	js = json.loads(content)
 
 	for j in range(0, len(js)):
-
-		temp = js[j]['id']
-
-		urlstr = "http://data.cityofnewyork.us/resource/%s.json" %temp
-
+		_id = js[j]['id']
+		urlstr = "http://data.cityofnewyork.us/resource/%s.json" %_id
 		try:		
 			urlholder = urllib2.urlopen(urlstr, timeout=25)
 
 			x = urlholder.read()
 			jjss = json.loads(x)
 
-			tempstr = ' '
+			tempstr = ''
 		
 			if len(jjss) == 0:
 				tempstr = 'No_Record'
@@ -53,7 +50,7 @@ for i in range(1, pages+1):
 			tempstr = 'Connection_failed'
 
 
-		tagstr = ' '
+		tagstr = ''
 
 		if js[j].has_key('category'):
 			tagstr = tagstr + ' ' + js[j]['category']
@@ -68,9 +65,9 @@ for i in range(1, pages+1):
 			for t in js[j]['tags']:
 				tagstr = tagstr + ' ' + t
 
-		line = js[j]['id'] + ' ' +\
-			js[j]['name'] + ' ' +\
-			tempstr + tagstr + '\n'
+		line = js[j]['id'] + '\t' +\
+			js[j]['name'] + '\t' +\
+			tempstr + '\t' + tagstr + '\n'
 
 		
 		#Write to file			

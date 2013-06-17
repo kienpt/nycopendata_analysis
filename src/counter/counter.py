@@ -6,6 +6,7 @@ from datetime import datetime
 urlhandle = urllib.urlopen('http://nycopendata.socrata.com/api/views.json?count=True')
 content = urlhandle.read()
 js = json.loads(content)
+print js
 print js['count']
 
 #Write the number to file

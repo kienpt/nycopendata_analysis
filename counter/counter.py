@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import json
 import urllib
 from datetime import datetime
